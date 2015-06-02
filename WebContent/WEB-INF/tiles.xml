@@ -1,0 +1,45 @@
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+  "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <!-- Abstract root definition -->
+    <!-- base -->
+    <definition name=".base" template="/WEB-INF/views/common/layouts/base_layout.jsp">
+        <put-attribute name="title" value="ZimiN" />
+        <put-attribute name="header" value="/WEB-INF/views/common/components/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/views/common/components/left_menu.jsp" />
+        <put-attribute name="body" value="" />
+        <!-- put-attribute name="footer" value="/WEB-INF/views/common/components/footer.jsp" / -->
+    </definition>
+    
+    <definition name="**_main" extends=".base">
+        <put-attribute name="body" value="/WEB-INF/views/{1}_main.jsp" />
+    </definition>
+    
+    <!-- popup -->
+    <definition name="**_popup" template="/WEB-INF/views/common/layouts/popup_layout.jsp">
+        <put-attribute name="title" value="Zimin" />
+        <put-attribute name="body" value="/WEB-INF/views/{1}_popup.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/common/components/footer.jsp" /><!-- popup footer -->
+    </definition>
+    
+    <!-- empty -->
+    <definition name="**_empty" template="/WEB-INF/views/common/layouts/empty_layout.jsp">
+        <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
+    </definition>
+    
+    <!-- json -->
+    <definition name="json" template="/WEB-INF/views/common/layouts/json_layout.jsp">
+    </definition>
+    
+    <!-- xml -->
+    <definition name="**_xml" template="/WEB-INF/views/common/layouts/xml_layout.jsp">
+        <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
+    </definition>
+    
+    <!-- excel -->
+    <definition name="**_xls" template="/WEB-INF/views/common/layouts/excel_layout.jsp">
+        <put-attribute name="title" value="Zimin" />
+        <put-attribute name="body" value="/WEB-INF/views/{1}.jsp" />
+    </definition>
+</tiles-definitions>
